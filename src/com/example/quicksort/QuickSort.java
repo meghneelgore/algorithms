@@ -2,6 +2,12 @@ package com.example.quicksort;
 
 import java.util.Random;
 
+/**
+ * QuickSort
+ * 
+ * @author meghneel.gore
+ *
+ */
 public class QuickSort {
 
 	Random r = new Random();
