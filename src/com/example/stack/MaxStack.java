@@ -23,12 +23,7 @@ public class MaxStack extends Stack<Integer> {
 		} else {
 			maxStack.push(item);
 		}
-		String a ="last";
-		String b = "losting";
 		
-		if(a.compareTo(b) < 0) {
-			System.out.println("Yes");
-		}
 		return super.push(item);
 	}
 	
