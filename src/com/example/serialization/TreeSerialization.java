@@ -22,12 +22,12 @@ public class TreeSerialization {
 	public TreeNode deserialize(String serializedTree) {
 		StringTokenizer tokenizer = new StringTokenizer(serializedTree, " ");
 		
-		TreeNode root = internalDeserialize(tokenizer, null);
+		TreeNode root = internalDeserialize(tokenizer);
 		return root;
 	}
 
 
-	private TreeNode internalDeserialize(StringTokenizer tokenizer, TreeNode node) {
+	private TreeNode internalDeserialize(StringTokenizer tokenizer) {
 		TreeNode n = null;
 		if(tokenizer.hasMoreElements()) {
 			
@@ -36,12 +36,11 @@ public class TreeSerialization {
 				return null;
 			} else {
 				n = new TreeNode(nextEl);
-				n.left = internalDeserialize(tokenizer, n);
-				n.right = internalDeserialize(tokenizer, n);
+				n.left = internalDeserialize(tokenizer);
+				n.right = internalDeserialize(tokenizer);
 				
 			}
 		}
-
 		return n;
 	}
 }
