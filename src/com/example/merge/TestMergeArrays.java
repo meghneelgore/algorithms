@@ -1,4 +1,4 @@
-package com.example.mergesort;
+package com.example.merge;
 
 public class TestMergeArrays {
 	static MergeArrays merge = new MergeArrays();
