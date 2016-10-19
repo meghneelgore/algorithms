@@ -9,4 +9,8 @@ public class TreeNode<T> {
 	public TreeNode(T data) {
 		this.data = data;
 	}
+	
+	public static boolean leaf(TreeNode<?> n) {
+		return (n.left == null) && (n.right == null);
+	}
 }

@@ -24,14 +24,10 @@ public class TreePaths {
 	public void findPathsWithSum(TreeNode<Integer> n, int remainingValue, String currentPath) {
 		if(n == null) return;
 		
-		if(leaf(n) && (remainingValue - n.data) == 0) System.out.println(currentPath + n.data);
+		if(TreeNode.leaf(n) && (remainingValue - n.data) == 0) System.out.println(currentPath + n.data);
 		
 		findPathsWithSum(n.left, remainingValue - n.data, currentPath + n.data + " ");
 		findPathsWithSum(n.right, remainingValue - n.data, currentPath + n.data + " ");
-	}
-
-	private boolean leaf(TreeNode<Integer> n) {
-		return (n.left == null) && (n.right == null);
 	}
 	
 	public static void main(String[] args) {
@@ -44,7 +40,7 @@ public class TreePaths {
 		root.right.right = new TreeNode<>(6);
 		
 		TreePaths p = new TreePaths();
-		p.findPathsWithSum(root, 21, "");
+		p.findPathsWithSum(root, 17, "");
 	}
 
 }
