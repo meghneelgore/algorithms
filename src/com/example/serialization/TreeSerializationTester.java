@@ -1,5 +1,7 @@
 package com.example.serialization;
 
+import com.example.tree.TreeNode;
+
 public class TreeSerializationTester {
 
 	public static void main(String[] args) {

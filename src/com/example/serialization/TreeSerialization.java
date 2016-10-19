@@ -2,11 +2,13 @@ package com.example.serialization;
 
 import java.util.StringTokenizer;
 
+import com.example.tree.TreeNode;
+
 public class TreeSerialization {
 	
 	StringBuffer buffer = new StringBuffer();
 
-	public void serialize(TreeNode root, StringBuffer buffer) {
+	public void serialize(TreeNode<String> root, StringBuffer buffer) {
 		if(root == null) { 
 			buffer.append("null ");
 			return;
@@ -19,23 +21,23 @@ public class TreeSerialization {
 		
 	}
 	
-	public TreeNode deserialize(String serializedTree) {
+	public TreeNode<String> deserialize(String serializedTree) {
 		StringTokenizer tokenizer = new StringTokenizer(serializedTree, " ");
 		
-		TreeNode root = internalDeserialize(tokenizer);
+		TreeNode<String> root = internalDeserialize(tokenizer);
 		return root;
 	}
 
 
-	private TreeNode internalDeserialize(StringTokenizer tokenizer) {
-		TreeNode n = null;
+	private TreeNode<String> internalDeserialize(StringTokenizer tokenizer) {
+		TreeNode<String> n = null;
 		if(tokenizer.hasMoreElements()) {
 			
 			String nextEl = tokenizer.nextToken(); 
 			if(nextEl.equals("null")) {
 				return null;
 			} else {
-				n = new TreeNode(nextEl);
+				n = new TreeNode<String>(nextEl);
 				n.left = internalDeserialize(tokenizer);
 				n.right = internalDeserialize(tokenizer);
 				
