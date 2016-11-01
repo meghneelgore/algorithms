@@ -13,4 +13,9 @@ public class TreeNode<T> {
 	public static boolean leaf(TreeNode<?> n) {
 		return (n.left == null) && (n.right == null);
 	}
+	
+	@Override
+	public String toString() {
+		return "" + data;
+	}
 }
