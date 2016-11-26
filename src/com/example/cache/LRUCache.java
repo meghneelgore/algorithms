@@ -28,6 +28,11 @@ public class LRUCache<K, V> {
 		}
 		T1 key;
 		T2 value;
+		
+		@Override
+		public String toString() {
+			return "[" + key + " -> " + value + "]";
+		}
 	}
 	
 	/**
@@ -50,7 +55,7 @@ public class LRUCache<K, V> {
 	 * @return If an item is being removed, return that item; null otherwise.
 	 * 
 	 */
-	public V put(K key, V value) {
+	public synchronized V put(K key, V value) {
 		if(map.get(key) != null) {
 			DoublyLinkedListNode<Pair<K, V>> node = map.get(key);
 			node.setData(new LRUCache.Pair<>(key, value));
@@ -68,9 +73,9 @@ public class LRUCache<K, V> {
 	}
 
 	/**
-	 * Inserts a new
-	 * @param key
-	 * @param value
+	 * Inserts a new item into the cache while maintaining LRU and capacity restrictions
+	 * @param key Key
+	 * @param value Value
 	 */
 	private void insertValueAsHead(K key, V value) {
 		DoublyLinkedListNode<Pair<K, V>> v = new DoublyLinkedListNode<Pair<K, V>>(new Pair<>(key, value));
@@ -100,7 +105,7 @@ public class LRUCache<K, V> {
 	 * 
 	 * @return The value corresponding to the key. null is returned if value doesn't exist.
 	 */
-	public V get(K key) {
+	public synchronized V get(K key) {
 		//return null if doesn't exist
 		if(map.get(key) == null) return null;
 
@@ -133,5 +138,4 @@ public class LRUCache<K, V> {
 		//Return value;
 		return v.getData().value;
 	}
-
 }
