@@ -1,7 +1,7 @@
 package com.example.linkedlist;
 
 public class DoublyLinkedListNode<T> {
-	private final T data;
+	private T data;
 	private DoublyLinkedListNode<T> next;
 	private DoublyLinkedListNode<T> prev;
 	
@@ -11,6 +11,10 @@ public class DoublyLinkedListNode<T> {
 	
 	public T getData() {
 		return data;
+	}
+	
+	public void setData(T data) {
+		this.data = data;
 	}
 	
 	public DoublyLinkedListNode<T> getPrev() {

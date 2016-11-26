@@ -15,10 +15,21 @@ import com.example.linkedlist.DoublyLinkedListNode;
 public class LRUCache<K, V> {
 
 	private final int capacity;
-	final HashMap<K, DoublyLinkedListNode<V>> map;
-	DoublyLinkedListNode<V> head;
-	DoublyLinkedListNode<V> tail;
+	final HashMap<K, DoublyLinkedListNode<Pair<K, V>>> map;
+	
+	DoublyLinkedListNode<Pair<K, V>> head;
+	DoublyLinkedListNode<Pair<K, V>> tail;
 
+	
+	static class Pair<T1, T2> {
+		public Pair(T1 key, T2 value) {
+			this.key = key;
+			this.value = value;
+		}
+		T1 key;
+		T2 value;
+	}
+	
 	/**
 	 * Initializes LRUCache with predetermined capacity. 
 	 * @param capacity
@@ -40,23 +51,33 @@ public class LRUCache<K, V> {
 	 * 
 	 */
 	public V put(K key, V value) {
+		if(map.get(key) != null) {
+			DoublyLinkedListNode<Pair<K, V>> node = map.get(key);
+			node.setData(new LRUCache.Pair<>(key, value));
+			return get(key);
+		}
 		if(map.size() == capacity) {
 			//remove the tail form the linked list and return the value of the tail.
-			DoublyLinkedListNode<V> t = tail;
+			DoublyLinkedListNode<Pair<K, V>> t = tail;
 			insertValueAsHead(key, value);		
-			return t.getData();
+			return t.getData().value;
 		} else {
 			insertValueAsHead(key, value);
 			return null;
 		}
 	}
 
+	/**
+	 * Inserts a new
+	 * @param key
+	 * @param value
+	 */
 	private void insertValueAsHead(K key, V value) {
-		DoublyLinkedListNode<V> v = new DoublyLinkedListNode<V>(value);
+		DoublyLinkedListNode<Pair<K, V>> v = new DoublyLinkedListNode<Pair<K, V>>(new Pair<>(key, value));
 
 		if(map.size() == capacity) {
 			tail = tail.getPrev();
-			map.remove(key);
+			map.remove(tail.getData().key);
 		}
 		
 		v.setNext(head);
@@ -82,24 +103,22 @@ public class LRUCache<K, V> {
 	public V get(K key) {
 		//return null if doesn't exist
 		if(map.get(key) == null) return null;
-		
-		
 
 		//Bring the node to the head
-		DoublyLinkedListNode<V> v = map.get(key);
+		DoublyLinkedListNode<Pair<K, V>> v = map.get(key);
 		
 		if(v == head) {
-			return v.getData();
+			return v.getData().value;
 		}
 		
 		if(v == tail) {
 			tail = tail.getPrev();
 			head = v;
-			return v.getData();
+			return v.getData().value;
 		}
 		
-		DoublyLinkedListNode<V> prev = v.getPrev();
-		DoublyLinkedListNode<V> next = v.getNext();
+		DoublyLinkedListNode<Pair<K, V>> prev = v.getPrev();
+		DoublyLinkedListNode<Pair<K, V>> next = v.getNext();
 
 		prev.setNext(next);
 		next.setPrev(prev);
@@ -112,7 +131,7 @@ public class LRUCache<K, V> {
 		head = v;
 
 		//Return value;
-		return v.getData();
+		return v.getData().value;
 	}
 
 }
