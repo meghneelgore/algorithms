@@ -77,4 +77,36 @@ public class LRUCacheTest {
 		Assert.assertEquals("Expected element not removed from cache", new Integer(1), i);
 	}
 
+	@Test
+	public void testMultiThreaded() {
+		final LRUCache<Integer, Integer> cache = new LRUCache<>(20);
+		
+		new Thread() {
+			public void run() {
+				for(int i = 0; i < 10; i++) {
+					cache.put(i, i);
+				}
+			};
+		}.start();
+		Thread t = new Thread() {
+			public void run() {
+				for(int i = 10; i < 20; i++) {
+					cache.put(i, i);
+				}
+			};
+		};
+		t.start();
+		try {
+			t.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(int i = 0; i < 20; i++) {
+			if(cache.get(i) == null) Assert.fail("Cache does not have expected value");
+		}
+		
+		Assert.assertEquals("Unexpected cache size", 20, cache.map.size());
+	}
 }
