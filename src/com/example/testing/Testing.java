@@ -19,7 +19,6 @@ public class Testing {
 		//System.out.println("Size = " + aList.size());
 		
 		Map<Integer, Integer> map = new TreeMap<>();
-		Random random = new Random();
 		
 		int[] array = {100, -3, -10, -4, 1, 34, 5, 37};
 		
@@ -30,7 +29,5 @@ public class Testing {
 		for(Integer i: map.keySet()) {
 			System.out.println(i);
 		}
-		
-		
 	}
 }

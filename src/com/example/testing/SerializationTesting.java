@@ -50,8 +50,12 @@ public class SerializationTesting {
 
 }
 
-class Person  implements Serializable, Comparable {
+class Person  implements Serializable, Comparable<Person> {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	static int count = 0;
 
 	@Override
@@ -69,9 +73,8 @@ class Person  implements Serializable, Comparable {
 	HashMap<String, Integer> map;
 
 	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int compareTo(Person o) {
+		return name.compareTo(o.name);
 	}
 	
 }

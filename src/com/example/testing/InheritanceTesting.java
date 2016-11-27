@@ -10,7 +10,7 @@ public class InheritanceTesting {
 	
 	
 	public InheritanceTesting(int i) {
-		// TODO Auto-generated constructor stub
+
 	}
 
 
