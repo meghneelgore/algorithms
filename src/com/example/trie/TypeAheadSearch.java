@@ -39,7 +39,7 @@ public class TypeAheadSearch {
 				return ImmutableSet.of(); //Empty set
 			}
 		}
-		searchAhead(trie.getHead().next.get(query.charAt(0)), "", list);
+		searchAhead(current, "", list);
 		return ImmutableSet.copyOf(list);
 	}
 
@@ -51,8 +51,8 @@ public class TypeAheadSearch {
 	 * @param list List of all the words found until now.
 	 */
 	private void searchAhead(TrieNode current, String currentString, LinkedList<String> list) {
-		if(current.index) {
-			list.add(currentString + current.c);
+		if(current.index && !currentString.equals("")) {
+			list.add(currentString);
 		}
 		if(current.next == null) return;
 		
@@ -60,7 +60,7 @@ public class TypeAheadSearch {
 			if(current == trie.getHead()) {
 				searchAhead(node, currentString, list);
 			} else {
-				searchAhead(node, currentString + current.c, list);
+				searchAhead(node, currentString + node.c, list);
 			}
 		}
 	}
