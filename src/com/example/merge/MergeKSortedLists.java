@@ -49,7 +49,7 @@ public class MergeKSortedLists {
 	        ListNode<Integer> returnNode;
 	        ListNode<Integer> currNode;
 	        
-	        if(l1.data < l2.data) {
+	        if(l1.getData() < l2.getData()) {
 	            returnNode = l1;
 	            currNode = l1;
 	            l1 = l1.next;
@@ -68,7 +68,7 @@ public class MergeKSortedLists {
 	                currNode.next = l1;
 	                return returnNode;
 	            }
-	            if(l1.data < l2.data) {
+	            if(l1.getData() < l2.getData()) {
 	                currNode.next = l1;
 	                currNode = currNode.next;
 	                l1 = l1.next;

@@ -14,7 +14,7 @@ public class TreeSerialization {
 			return;
 		}
 		
-		buffer.append(root.getData()2 + " ");
+		buffer.append(root.getData() + " ");
 		serialize(root.left, buffer);
 		serialize(root.right, buffer);
 		
