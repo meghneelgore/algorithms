@@ -1,6 +1,6 @@
-package com.example.tree.traversal;
+package com.meghneelgore.tree.traversal;
 
-import com.example.tree.TreeNode;
+import com.meghneelgore.tree.TreeNode;
 
 /**
  * Given a tree root and a number, find all full paths (from root to a leaf) that add up to the number.
@@ -24,10 +24,10 @@ public class TreePaths {
 	public void findPathsWithSum(TreeNode<Integer> n, int remainingValue, String currentPath) {
 		if(n == null) return;
 		
-		if(TreeNode.leaf(n) && (remainingValue - n.data) == 0) System.out.println(currentPath + n.data);
+		if(TreeNode.leaf(n) && (remainingValue - n.getData()) == 0) System.out.println(currentPath + n.getData());
 		
-		findPathsWithSum(n.left, remainingValue - n.data, currentPath + n.data + " ");
-		findPathsWithSum(n.right, remainingValue - n.data, currentPath + n.data + " ");
+		findPathsWithSum(n.left, remainingValue - n.getData(), currentPath + n.getData() + " ");
+		findPathsWithSum(n.right, remainingValue - n.getData(), currentPath + n.getData() + " ");
 	}
 	
 	public static void main(String[] args) {

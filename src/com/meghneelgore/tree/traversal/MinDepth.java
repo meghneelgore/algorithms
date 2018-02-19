@@ -1,6 +1,6 @@
-package com.example.tree.traversal;
+package com.meghneelgore.tree.traversal;
 
-import com.example.tree.TreeNode;
+import com.meghneelgore.tree.TreeNode;
 
 public class MinDepth {
 	public int minDepth(TreeNode<?> root) {

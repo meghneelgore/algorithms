@@ -1,6 +1,6 @@
-package com.example.tree.traversal;
+package com.meghneelgore.tree.traversal;
 
-import com.example.tree.TreeNode;
+import com.meghneelgore.tree.TreeNode;
 
 /**
  * Checks if a given tree is a BST
@@ -11,10 +11,10 @@ public class BSTChecker {
 
 	public boolean checkForBST(TreeNode<Integer> node, int maxAllowed, int minAllowed) {
 		if(node == null) return true;
-		if(node.data > maxAllowed || node.data < minAllowed) return false;
+		if(node.getData() > maxAllowed || node.getData() < minAllowed) return false;
 		
-		if(!checkForBST(node.left, node.data, minAllowed)) return false;
-		if(!checkForBST(node.right, maxAllowed, node.data)) return false;;
+		if(!checkForBST(node.left, node.getData(), minAllowed)) return false;
+		if(!checkForBST(node.right, maxAllowed, node.getData())) return false;;
 		return true;
 		
 	}

@@ -2,7 +2,7 @@ package com.example.serialization;
 
 import java.util.StringTokenizer;
 
-import com.example.tree.TreeNode;
+import com.meghneelgore.tree.TreeNode;
 
 public class TreeSerialization {
 	
@@ -14,7 +14,7 @@ public class TreeSerialization {
 			return;
 		}
 		
-		buffer.append(root.data + " ");
+		buffer.append(root.getData()2 + " ");
 		serialize(root.left, buffer);
 		serialize(root.right, buffer);
 		

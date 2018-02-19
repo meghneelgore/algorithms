@@ -1,21 +1,16 @@
-package com.example.tree;
+package com.meghneelgore.tree;
 
-public class TreeNode<T> {
+import com.meghneelgore.node.Node;
 
-	public T data;
+public class TreeNode<T> extends Node<T>{
 	public TreeNode<T> left;
 	public TreeNode<T> right;
 	
 	public TreeNode(T data) {
-		this.data = data;
+		super(data);
 	}
-	
+
 	public static boolean leaf(TreeNode<?> n) {
 		return (n.left == null) && (n.right == null);
-	}
-	
-	@Override
-	public String toString() {
-		return "" + data;
 	}
 }

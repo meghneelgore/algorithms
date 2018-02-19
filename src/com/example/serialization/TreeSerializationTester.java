@@ -1,6 +1,6 @@
 package com.example.serialization;
 
-import com.example.tree.TreeNode;
+import com.meghneelgore.tree.TreeNode;
 
 public class TreeSerializationTester {
 

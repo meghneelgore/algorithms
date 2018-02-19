@@ -52,7 +52,7 @@ public class SwapPairs {
 		n = s.swapPairs(n);
 
 		while(n != null) {
-			System.out.print(n.data + " -> ");
+			System.out.print(n.getData() + " -> ");
 			n = n.next;
 		}
 		

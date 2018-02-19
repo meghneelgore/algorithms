@@ -1,6 +1,6 @@
-package com.example.tree.traversal;
+package com.meghneelgore.tree.traversal;
 
-import com.example.tree.TreeNode;
+import com.meghneelgore.tree.TreeNode;
 
 public class LeastCommonAncestor {
 
@@ -30,6 +30,6 @@ public class LeastCommonAncestor {
 		LeastCommonAncestor lca = new LeastCommonAncestor();
 		
 		TreeNode<?> lcaNode = lca.findLCA(root, root.left.left, root.left);
-		System.out.println(lcaNode.data);
+		System.out.println(lcaNode.getData());
 	}
 }

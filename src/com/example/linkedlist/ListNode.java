@@ -1,11 +1,13 @@
 package com.example.linkedlist;
 
-public class ListNode<T> {
-	public T data;
+import com.meghneelgore.node.Node;
+
+public class ListNode<T> extends Node<T>{
+
 	public ListNode<T> next;
 	
 	public ListNode(T data) {
-		this.data = data;
+		super(data);
 	}
 	
 	@Override
@@ -14,7 +16,7 @@ public class ListNode<T> {
 		ListNode<T> curr = this;
 		
 		while(curr != null) {
-			buffer.append(curr.data);
+			buffer.append(curr.getData().toString());
 			if(curr.next != null) buffer.append(" -> ");
 			curr = curr.next;
 		}

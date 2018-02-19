@@ -1,11 +1,9 @@
-package com.example.tree.traversal;
+package com.meghneelgore.tree.traversal;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
-import com.example.tree.TreeNode;
+import com.meghneelgore.tree.TreeNode;
 
 public class TreeBFS {
 
@@ -40,7 +38,7 @@ public class TreeBFS {
 			if(n == null) {
 				System.out.print("null ");
 			} else {
-				System.out.print(n.data + " ");
+				System.out.print(n.getData() + " ");
 			}
 			count--;
 			if(count == 0) {

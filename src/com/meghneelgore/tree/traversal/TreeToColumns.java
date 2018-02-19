@@ -1,10 +1,10 @@
-package com.example.tree.traversal;
+package com.meghneelgore.tree.traversal;
 
 import java.util.Comparator;
 
-import com.example.tree.TreeNode;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
+import com.meghneelgore.tree.TreeNode;
 
 public class  TreeToColumns{
 
@@ -40,7 +40,7 @@ public class  TreeToColumns{
 		if(root == null ) return;
 		
 		traverseTree(root.left, index + 1, map);
-		map.put(index, root.data);
+		map.put(index, root.getData());
 		traverseTree(root.right, index - 1, map);
 	}
 	

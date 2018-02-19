@@ -1,4 +1,4 @@
-package com.example.tree.traversal;
+package com.meghneelgore.tree.traversal;
 
 public class VerifySerialzedBTree {
 	public boolean isValidSerialization(String preorder) {
